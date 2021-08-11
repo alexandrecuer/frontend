@@ -16,7 +16,7 @@ To view : `http://127.0.0.1/frontend`
 # to install apache2 with mod rewrite enabled and php 
 
 ```
-apt-get install -y apache2
+sudo apt-get install -y apache2
 sudo a2enmod rewrite
 sudo apt-get install -y php
 sudo apt-get install -y libapache2-mod-php
