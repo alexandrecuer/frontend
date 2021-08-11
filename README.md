@@ -7,7 +7,7 @@ brief example that allows to understand the functioning of the emoncms menuv3 wi
 To install on an apache2 server with mod rewrite enabled and php :
 ```
 cd /var/www/html
-git clone http://github.com/alexandrecuer/frontend
+sudo git clone http://github.com/alexandrecuer/frontend
 ```
 To view : `http://127.0.0.1/frontend`
 
