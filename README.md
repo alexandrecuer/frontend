@@ -17,7 +17,6 @@ To view : `http://127.0.0.1/frontend`
 
 ```
 apt-get install -y apache2
-sudo sed -i "s/^CustomLog/#CustomLog/" /etc/apache2/conf-available/other-vhosts-access-log.conf
 sudo a2enmod rewrite
 sudo apt-get install -y php
 sudo apt-get install -y libapache2-mod-php
