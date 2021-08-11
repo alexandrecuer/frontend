@@ -1,6 +1,6 @@
 # Emoncms frontend
 
-brief example that allows to understand the functioning of the emoncms menuv3, its articulation with the routing, the loading of the svg icons
+brief example that allows to understand the functioning of the emoncms menuv3, its articulation with the routing, the loading of the svg icons, the color schemes
 
 To install on an apache2 server with php :
 ```
