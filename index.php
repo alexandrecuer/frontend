@@ -116,11 +116,11 @@ if ($route->controller=="graph" and $route->action=="view"){
 ?>
 <html class="theme-<?php echo $colors[$nbcol]; ?> sidebar-dark">
 <head>
-  <link href="/tests/menu/emoncms-base.css?v=<?php echo $v; ?>" rel="stylesheet">
-  <link href="/tests/menu/menu.css?v=<?php echo $v; ?>" rel="stylesheet">
+  <link href="menu/emoncms-base.css?v=<?php echo $v; ?>" rel="stylesheet">
+  <link href="menu/menu.css?v=<?php echo $v; ?>" rel="stylesheet">
 
-  <script type="text/javascript" src="/tests/menu/jquery-3.6.0.js"></script>
-  <script type="text/javascript" src=/tests/menu/menu.js?v=<?php echo $v; ?>></script>
+  <script type="text/javascript" src="menu/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src=menu/menu.js?v=<?php echo $v; ?>></script>
   <?php echo view("menu/svg_icons.svg", array()) ?>
 </head>
 <body>
