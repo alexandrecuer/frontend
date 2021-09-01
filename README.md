@@ -11,8 +11,6 @@ sudo git clone http://github.com/alexandrecuer/frontend
 ```
 To view : `http://127.0.0.1/frontend`
 
-![image](https://user-images.githubusercontent.com/24553739/129034837-1428029f-2d3e-4b0d-9b7d-4b7a3c823f7b.png)
-
 # to install apache2 with mod rewrite enabled and php 
 
 ## on ubuntu
@@ -29,7 +27,7 @@ use http://apachelounge.com/ and install to C:/apache24
 
 download php binaries from https://windows.php.net/download and install to C:/php
 
-insert this in your httpd.conf - cf https://www.php.net/manual/fr/install.windows.apache2.php
+insert this in your httpd.conf - cf [https://www.php.net/manual/fr/install.windows.apache2.php](https://www.php.net/manual/fr/install.windows.apache2.php)
 
 ```
 LoadModule php_module "c:/php/php8apache2_4.dll"
