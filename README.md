@@ -8,7 +8,7 @@ brief example that allows to understand the functioning of the emoncms menuv3 wi
 
 # to install apache2 with mod rewrite enabled and php 
 
-## on ubuntu
+## ubuntu
 
 assuming you store your repos in a `github` folder within your your home directory 
 ```
@@ -37,7 +37,7 @@ restart apache with `sudo systemctl restart apache2`
 
 Nota : your virtualhost config should be in `/etc/apache2/sites-available/000-default.conf`
 
-## on windows
+## windows
 
 use http://apachelounge.com/ and install to `C:/apache24`
 
