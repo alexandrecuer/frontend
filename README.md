@@ -37,11 +37,11 @@ restart apache with `sudo systemctl restart apache2`
 
 ## on windows
 
-use http://apachelounge.com/ and install to C:/apache24
+use http://apachelounge.com/ and install to `C:/apache24`
 
-download php binaries from https://windows.php.net/download and install to C:/php
+download php binaries from https://windows.php.net/download and install to `C:/php`
 
-insert this in your httpd.conf - cf https://www.php.net/manual/fr/install.windows.apache2.php
+insert this in your `httpd.conf` - cf https://www.php.net/manual/fr/install.windows.apache2.php
 
 ```
 LoadModule php_module "c:/php/php8apache2_4.dll"
@@ -51,9 +51,9 @@ LoadModule php_module "c:/php/php8apache2_4.dll"
 # configure the path to php.ini
 PHPIniDir "C:/php"
 ```
-Still in https.conf, uncomment `LoadModule rewrite_module modules/mod_rewrite.so` to enable mod-rewrite
+Still in `httpd.conf`, uncomment `LoadModule rewrite_module modules/mod_rewrite.so` to enable mod-rewrite
 
-unzip or clone source code in C:/Apache24/htdocs/frontend, modify your virtual host  :
+unzip or clone source code in C:/Apache24/htdocs/frontend, inject this in the virtual host of your `httpd.conf`:
 ```
 <Directory "C:/Apache24/htdocs/frontend">
   Options FollowSymLinks
@@ -62,5 +62,17 @@ unzip or clone source code in C:/Apache24/htdocs/frontend, modify your virtual h
   Require all granted
 </Directory>
 ```
+if your `httpd.conf` does not yet have any virtual host, add a complete virtualhost block :
+```
+<VirtualHost *:80>
+  <Directory "C:/Apache24/htdocs/frontend">
+    Options FollowSymLinks
+    AllowOverride All
+    DirectoryIndex index.php
+    Require all granted
+  </Directory>
+</Virtaulhost>
+```
+
 
 
