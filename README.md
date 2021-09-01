@@ -25,14 +25,13 @@ sudo apt-get install -y libapache2-mod-php
 ```
 ## on windows
 
-use http://apachelounge.com/ and install in C:/apache24
+use http://apachelounge.com/ and install to C:/apache24
 
-download php binaries from https://windows.php.net/download and install in C:/php
+download php binaries from https://windows.php.net/download and install to C:/php
 
 insert this in your httpd.conf - cf https://www.php.net/manual/fr/install.windows.apache2.php
 
 ```
-# before PHP 8.0.0 the name of the module was php7_module
 LoadModule php_module "c:/php/php8apache2_4.dll"
 <FilesMatch \.php$>
     SetHandler application/x-httpd-php
@@ -40,9 +39,9 @@ LoadModule php_module "c:/php/php8apache2_4.dll"
 # configure the path to php.ini
 PHPIniDir "C:/php"
 ```
-uncomment `LoadModule rewrite_module modules/mod_rewrite.so` to enable mod-rewrite
+Still in https.conf, uncomment `LoadModule rewrite_module modules/mod_rewrite.so` to enable mod-rewrite
 
-if source code is C:/Apache24/htdocs/frontend, modify your virtual host  :
+unzip or clone source code in C:/Apache24/htdocs/frontend, modify your virtual host  :
 ```
 <Directory "C:/Apache24/htdocs/frontend">
   Options FollowSymLinks
