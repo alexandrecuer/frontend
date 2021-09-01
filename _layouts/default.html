@@ -227,12 +227,12 @@
     <div class="menu-l2"><div class="menu-l2-inner"><ul></ul></div><div id="menu-l2-controls"></div></div><div class="menu-l3"><ul></ul></div>
     <main class="content-container">
       <script>
-	var path = "{{ site.url }}";
+        var path = "{{ site.url }}";
         var q = "{{ page.permalink }}";
 		
         $.getJSON( path + "/data.json", function( data ) {
           //console.log(data);
-	  // Draw menu
+          // Draw menu
           menu.init(data);	  
         });
 		

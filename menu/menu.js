@@ -285,9 +285,9 @@ var menu = {
             } else {
                 $(".menu-text-l1").show();
             }
-	    // Alexandre CUER - 01/09/2021 - specific to index page if any
-	    console.log(q);
-	    if (q==="index" || q==="//") menu.hide_l2();
+	        // Alexandre CUER - 01/09/2021 - specific to index page if any
+	        console.log(q);
+	        if (q==="index" || q==="//") menu.hide_l2();
         }
     },
 
