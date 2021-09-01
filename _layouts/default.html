@@ -226,29 +226,28 @@
     </div>
     <div class="menu-l2"><div class="menu-l2-inner"><ul></ul></div><div id="menu-l2-controls"></div></div><div class="menu-l3"><ul></ul></div>
     <main class="content-container">
-	  <script>
-	    var path = "{{ site.url }}";
-		var q = "{{ page.permalink }}";
+      <script>
+	var path = "{{ site.url }}";
+        var q = "{{ page.permalink }}";
 		
-		$.getJSON( path + "/data.json", function( data ) {
-		  console.log(data);
-		  // Draw menu
-		  menu.init(data);	  
+        $.getJSON( path + "/data.json", function( data ) {
+          //console.log(data);
+	  // Draw menu
+          menu.init(data);	  
         });
 		
       </script>
-	  {{ content }}
-	  {{ site.time }}
-	  <div id="graph"></div>
-	  <script>
-	    var url = window.location.href;
-		var route = new URL(url);
-		var c = route.searchParams.get("id");
-		if (c){
-		  $("#graph").html("This is graph "+c);
-		  }
-	  </script>
-	  
+      {{ content }}
+      {{ site.time }}
+      <div id="graph"></div>
+      <script>
+        var url = window.location.href;
+        var route = new URL(url);
+        var c = route.searchParams.get("id");
+        if (c){
+          $("#graph").html("This is graph "+c);
+        }
+      </script>  
     </main>
 </div>
 </body>
