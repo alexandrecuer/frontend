@@ -1,6 +1,6 @@
 # [Emoncms](http://github.com/emoncms/emoncms) frontend
 
-brief example that allows to understand the functioning of the emoncms menuv3 with its three layers, its articulation with the routing, the loading of the svg icons, the color schemes...
+brief example to understand the functioning of the emoncms menuv3 with its three layers, its articulation with the routing, the loading of the svg icons, the color schemes...
 
 [LIVE DEMO](https://alexandrecuer.github.io/frontend/)
 
