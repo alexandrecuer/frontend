@@ -116,9 +116,11 @@ if ($route->controller=="graph" and $route->action=="view"){
 ?>
 <html class="theme-<?php echo $colors[$nbcol]; ?> sidebar-dark">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   <link href="<?php echo $path; ?>menu/emoncms-base.css?v=<?php echo $v; ?>" rel="stylesheet">
   <link href="<?php echo $path; ?>menu/menu.css?v=<?php echo $v; ?>" rel="stylesheet">
-
+  <link href="<?php echo $path; ?>menu/bootstrap.css" rel="stylesheet">
   <script type="text/javascript" src="<?php echo $path; ?>menu/jquery-3.6.0.js"></script>
   <script type="text/javascript" src=<?php echo $path; ?>menu/menu.js?v=<?php echo $v; ?>></script>
   <?php echo view("menu/svg_icons.svg", array()) ?>
@@ -146,7 +148,7 @@ if ($route->controller=="graph" and $route->action=="view"){
         if ($route->subaction){
           echo "route with a subaction / $route->subaction";
         }
-        if ($_GET['id']){
+        if (@$_GET['id']){
           echo "route with an id parameter / ".$_GET['id'];
         }
         ?>
