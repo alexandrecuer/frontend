@@ -10,7 +10,7 @@ brief example that allows to understand the functioning of the emoncms menuv3 wi
 
 ## on ubuntu
 
-assuming you store your repos in a github folder within your your home directory 
+assuming you store your repos in a `github` folder within your your home directory 
 ```
 sudo apt-get install -y apache2
 sudo a2enmod rewrite
