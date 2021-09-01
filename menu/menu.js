@@ -264,7 +264,7 @@ var menu = {
         menu.height = $(window).height();
 
         if (!menu.is_disabled) {
-
+            
             if (menu.mode=='auto') {
                 if (menu.width>=576 && menu.width<992) {
                     menu.min_l2();
@@ -285,6 +285,8 @@ var menu = {
             } else {
                 $(".menu-text-l1").show();
             }
+			// Alexandre CUER - 01/09/2021 - specific to index page if any
+			if (q==="index") menu.hide_l2();
         }
     },
 
