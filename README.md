@@ -23,7 +23,17 @@ git clone http://github.com/alexandrecuer/frontend
 To create a new apache alias, inject the following lines in your virtual host :
 
 ```
+Alias /frontend /home/alexandrecuer/github/frontend/
+<Directory /home/alexandrecuer/github/frontend/>
+  Options FollowSymLinks
+  AllowOverride All
+  DirectoryIndex index.php
+  Require all granted
+</Directory> 
 ```
+replace `alexandrecuer` by your user name.
+
+restart apache with `sudo systemctl restart apache2`
 
 ## on windows
 
