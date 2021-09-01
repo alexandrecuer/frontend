@@ -229,8 +229,8 @@
 	    var path = "{{ site.url }}";
 		var q = "{{ page.permalink }}";
 		
-		$.getJSON( "/data.json", function( data ) {
-		  //console.log(data);
+		$.getJSON( path + "/data.json", function( data ) {
+		  console.log(data);
 		  // Draw menu
 		  menu.init(data);	  
         });
