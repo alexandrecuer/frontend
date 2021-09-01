@@ -53,7 +53,9 @@ PHPIniDir "C:/php"
 ```
 Still in `httpd.conf`, uncomment `LoadModule rewrite_module modules/mod_rewrite.so` to enable mod-rewrite
 
-unzip or clone source code in C:/Apache24/htdocs/frontend, inject this in the virtual host of your `httpd.conf`:
+unzip or clone source code in `C:/Apache24/htdocs/frontend`
+
+inject the following lines in the virtual host of your `httpd.conf`:
 ```
 <Directory "C:/Apache24/htdocs/frontend">
   Options FollowSymLinks
