@@ -71,7 +71,7 @@ if your `httpd.conf` does not yet have any virtual host, add a complete virtualh
     DirectoryIndex index.php
     Require all granted
   </Directory>
-</Virtaulhost>
+</Virtualhost>
 ```
 
 
