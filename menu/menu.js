@@ -287,7 +287,7 @@ var menu = {
             }
 			// Alexandre CUER - 01/09/2021 - specific to index page if any
 			console.log(q);
-			if (q==="index") menu.hide_l2();
+			if (q==="index" || q==="//") menu.hide_l2();
         }
     },
 
