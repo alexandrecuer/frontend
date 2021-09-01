@@ -35,6 +35,8 @@ replace `alexandrecuer` by your user name.
 
 restart apache with `sudo systemctl restart apache2`
 
+Nota : your virtualhost config should be in `/etc/apache2/sites-available/000-default.conf`
+
 ## on windows
 
 use http://apachelounge.com/ and install to `C:/apache24`
