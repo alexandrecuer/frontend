@@ -39,7 +39,14 @@ Nota : your virtualhost config should be in `/etc/apache2/sites-available/000-de
 
 ## windows
 
-use http://apachelounge.com/ and install to `C:/apache24`
+Dowload apache binaires at http://apachelounge.com/ and unzip to `C:/apache24`
+
+Install apache as a service :
+```
+cd C:\Apache24\bin
+httpd.exe -k install
+```
+Make sure to run the service with administrator privileges
 
 download php binaries from https://windows.php.net/download and install to `C:/php`
 
