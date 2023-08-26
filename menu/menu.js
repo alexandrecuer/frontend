@@ -206,10 +206,10 @@ var menu = {
         document.querySelector('.menu-l2').style.width = "50px";
         document.querySelector('.menu-l3').style.display = 'none';
         document.querySelectorAll('.menu-text-l2').forEach(function (item) {
-            item.style.display = 'none');
+            item.style.display = 'none';
         });
         document.querySelector('.menu-title-l2 span').forEach(function (item) {
-            item.style.display = 'none');
+            item.style.display = 'none';
         });
 
         var window_width = window.innerWidth;
