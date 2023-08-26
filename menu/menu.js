@@ -244,7 +244,7 @@ var menu = {
         document.querySelector('.content-container').style.margin = "46px 0 0 "+left+"px";
 
         var ctrl = document.querySelector('#menu-l2-controls');
-        ctrl.innerHTML = '<svg class="icon"><use xlink:href="#icon-contract"></use></svg>');
+        ctrl.innerHTML = '<svg class="icon"><use xlink:href="#icon-contract"></use></svg>';
         ctrl.setAttribute("title","Minimise sidebar");
         ctrl.classList.remove("ctrl-min");
         ctrl.classList.add("ctrl-exp");
@@ -263,7 +263,7 @@ var menu = {
         });
         var left = 290;
         if (menu.width<1150) left = 50;
-        document.querySelector('.content-container').style.margin = "46px 0 0 "+left+"px"
+        document.querySelector('.content-container').style.margin = "46px 0 0 "+left+"px";
     },
 
     // If we hide l3 - l2 expands
