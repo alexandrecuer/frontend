@@ -221,7 +221,7 @@ var menu = {
         ctrl.innerHTML = '<svg class="icon"><use xlink:href="#icon-expand"></use></svg>';
         ctrl.setAttribute("title","Expand sidebar");
         ctrl.classList.remove("ctrl-exp");
-        ctrl.classlist.add("ctrl-min");
+        ctrl.classList.add("ctrl-min");
     },
 
     // If we expand l2 we also hide l3
