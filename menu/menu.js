@@ -309,13 +309,13 @@ var menu = {
             window.onclick = e => {
                 console.log(e);
                 console.log(e.target);  // to get the element
-		console.log(e.srcElement);
+		if (e.target.tagName === "DIV") {
+                    console.log(e.target.attributes[0]);
+		} else {
+                    console.log(e.target.parentNode.attributes[0]);
+		}
                 console.log(e.target.tagName);  // to get the element tag name alone
             };
-	    document.body.addEventListener("click", function(e) {
-                var target = e.target;
-                console.log(target.getAttribute("l1"));
-            });
             menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
