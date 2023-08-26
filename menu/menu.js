@@ -205,8 +205,8 @@ var menu = {
         document.querySelector('.menu-l2').style.display = '';
         document.querySelector('.menu-l2').style.width = "50px";
         document.querySelector('.menu-l3').style.display = 'none';
-        document.querySelector('.menu-text-l2').style.display = 'none';
-        document.querySelector('.menu-title-l2 span').style.display = 'none';
+        document.querySelectorAll('.menu-text-l2').style.display = 'none';
+        document.querySelectorAll('.menu-title-l2 span').style.display = 'none';
 
         var window_width = window.innerWidth;
         var max_width = document.querySelector('.content-container').style.maxWidth.replace("px","");
