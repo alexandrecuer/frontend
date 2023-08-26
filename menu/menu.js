@@ -237,7 +237,7 @@ var menu = {
         menu.l2_min = false;
         menu.l2_visible = true;
         menu.hide_l3();
-        document.querySelector('.menu-l2').style.display = '':
+        document.querySelector('.menu-l2').style.display = '';
         document.querySelector('.menu-l2').style.width = "240px";
         var left = 240;
         if (menu.width<1150) left = 50;
