@@ -228,19 +228,26 @@ var menu = {
 
     // If we expand l2 we also hide l3
     exp_l2: function () {
-        if (menu.l2_min) setTimeout(function(){ $(".menu-text-l2").show(); $(".menu-title-l2 span").show(); },200);
+        if (menu.l2_min) setTimeout(function(){
+                document.querySelectorAll('.menu-text-l2').forEach(function (item) {
+                    item.style.display = '';
+                });
+                document.querySelector('.menu-title-l2 span').style.display = '';
+            },200);
         menu.l2_min = false;
         menu.l2_visible = true;
         menu.hide_l3();
-        $(".menu-l2").show();
-        $(".menu-l2").css("width","240px");
+        document.querySelector('.menu-l2').style.display = '':
+        document.querySelector('.menu-l2').style.width = "240px";
         var left = 240;
         if (menu.width<1150) left = 50;
-        $(".content-container").css("margin","46px 0 0 "+left+"px");
+        document.querySelector('.content-container').style.margin = "46px 0 0 "+left+"px";
 
-        var ctrl = $("#menu-l2-controls");
-        ctrl.html('<svg class="icon"><use xlink:href="#icon-contract"></use></svg>');
-        ctrl.attr("title","Minimise sidebar").removeClass("ctrl-min").addClass("ctrl-exp");
+        var ctrl = document.querySelector('#menu-l2-controls');
+        ctrl.innerHTML = '<svg class="icon"><use xlink:href="#icon-contract"></use></svg>');
+        ctrl.setAttribute("title","Minimise sidebar");
+        ctrl.classList.remove("ctrl-min");
+        ctrl.classList.add("ctrl-exp");
     },
 
     // If we show l3, l2_min = false moves back to expanded l2
@@ -249,23 +256,25 @@ var menu = {
         menu.l2_visible = true;
         menu.l3_visible = true;
         menu.l2_min = true;
-        $(".menu-l2").css("width","50px");
-        $(".menu-l3").show();
-        $(".menu-text-l2").hide();
+        document.querySelector('.menu-l2').style.width = "50px";
+        document.querySelector('.menu-l3').style.display = ''
+        document.querySelectorAll('.menu-text-l2').forEach(function (item) {
+            item.style.display = '';
+        });
         var left = 290;
         if (menu.width<1150) left = 50;
-        $(".content-container").css("margin","46px 0 0 "+left+"px");
+        document.querySelector('.content-container').style.margin = "46px 0 0 "+left+"px"
     },
 
     // If we hide l3 - l2 expands
     hide_l3: function () {
         menu.l3_visible = false;
-        $(".menu-l3").hide();
+        document.querySelector('.menu-l3').style.display = 'none'
     },
 
     resize: function() {
-        menu.width = $(window).width();
-        menu.height = $(window).height();
+        menu.width = window.innerWidth;
+        menu.height = window.innerHeight;
 
         if (!menu.is_disabled) {
             
@@ -285,9 +294,13 @@ var menu = {
             }
 
             if (menu.width<576) {
-                $(".menu-text-l1").hide();
+                document.querySelectorAll('.menu-text-l1').forEach(function (item) {
+                    item.style.display = 'none';
+                });
             } else {
-                $(".menu-text-l1").show();
+                document.querySelectorAll('.menu-text-l1').forEach(function (item) {
+                    item.style.display = '';
+                });
             }
 	        // Alexandre CUER - 01/09/2021 - specific to index page if any
 	        console.log(q);
