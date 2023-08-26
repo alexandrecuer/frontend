@@ -310,9 +310,12 @@ var menu = {
                 console.log(e);
                 console.log(e.target);  // to get the element
 		console.log(e.srcElement);
-		console.log(e.srcElement.getAttributes("l1"));
                 console.log(e.target.tagName);  // to get the element tag name alone
             };
+	    document.body.addEventListener("click", function(e) {
+                var target = e.target;
+		console.log(target.getAttribute("l1");
+	    }
             menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
