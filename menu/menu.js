@@ -208,9 +208,7 @@ var menu = {
         document.querySelectorAll('.menu-text-l2').forEach(function (item) {
             item.style.display = 'none';
         });
-        document.querySelector('.menu-title-l2 span').forEach(function (item) {
-            item.style.display = 'none';
-        });
+        document.querySelector('.menu-title-l2 span').style.display = 'none';
 
         var window_width = window.innerWidth;
         var max_width = document.querySelector('.content-container').style.maxWidth.replace("px","");
