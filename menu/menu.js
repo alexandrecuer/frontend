@@ -302,11 +302,10 @@ var menu = {
     // Menu events
     // -----------------------------------------------------------------------
     events: function() {
-        console.log(this);
-        console.log($(this));
         $(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
-            
+            console.log($(this).attr("l1"));
+            console.log(menu.active_l1);
             menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
