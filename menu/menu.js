@@ -257,7 +257,8 @@ var menu = {
         menu.l3_visible = true;
         menu.l2_min = true;
         document.querySelector('.menu-l2').style.width = "50px";
-        $(".menu-l3").show();//document.querySelector('.menu-l3').style.display = ''
+        //$(".menu-l3").show();
+        document.querySelector('.menu-l3').style.display = 'block';
         document.querySelectorAll('.menu-text-l2').forEach(function (item) {
             item.style.display = 'none';
         });
