@@ -304,20 +304,12 @@ var menu = {
     events: function() {
         $(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
-            console.log($(this).attr("l1"));
-            console.log(menu.active_l1);
-            console.log(event.target);
-            window.onclick = e => {
-                console.log(e);
-                console.log(e.target);  // to get the element
-		if (e.target.tagName === "DIV") {
-                    console.log(e.target.attributes[0].nodeValue);
-		} else {
-                    console.log(e.target.parentNode.attributes[0].nodeValue);
-		}
-                console.log(e.target.tagName);  // to get the element tag name alone
-            };
-            menu.active_l1 = $(this).attr("l1");
+            el = event.target;
+            if (el.tagName === "DIV") {
+                menu.active_l1 = el.attributes[0].nodeValue;
+	    } else {
+                menu.active_l1 = el.parentNode.attributes[0].nodeValue;
+	    }
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
             $(".menu-l1 li div").removeClass("active");
