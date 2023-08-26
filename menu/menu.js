@@ -89,7 +89,8 @@ var menu = {
                 out += '<li><a '+href+' onclick="return false;"><div l1='+l1+' class="'+active+'" title="'+title+'"> '+icon+'<span class="menu-text-l1"> '+item['name']+'</span></div></a></li>';
             }
         }
-        $(".menu-l1 ul").html(out);
+        document.querySelector('.menu-l1 ul').innerHTML = out;
+        //$(".menu-l1 ul").html(out);
 
         if (menu.active_l1 && menu.obj[menu.active_l1]['l2']!=undefined) menu.draw_l2(); else menu.hide_l2();
     },
