@@ -90,7 +90,6 @@ var menu = {
             }
         }
         document.querySelector('.menu-l1 ul').innerHTML = out;
-        //$(".menu-l1 ul").html(out);
 
         if (menu.active_l1 && menu.obj[menu.active_l1]['l2']!=undefined) menu.draw_l2(); else menu.hide_l2();
     },
@@ -149,7 +148,7 @@ var menu = {
             }
         }
 
-        $(".menu-l2 ul").html(out);
+        document.querySelector('.menu-l2 ul').innerHTML = out;
 
         // If menu_l2 open and l2 menu item active and l3 exists: draw l3
         if (menu.active_l2 && menu.obj[menu.active_l1]['l2'][menu.active_l2]!=undefined && menu.obj[menu.active_l1]['l2'][menu.active_l2]['l3']!=undefined) {
@@ -175,7 +174,7 @@ var menu = {
             // Menu item
             out += '<li><a href="'+path+item['href']+'" class="'+active+'">'+item['name']+'</a></li>';
         }
-        $(".menu-l3 ul").html(out);
+        document.querySelector('.menu-l3 ul').innerHTML = out;
         menu.show_l3();
     },
 
@@ -187,15 +186,15 @@ var menu = {
 
     // l2 min + l3 hidden
     hide_l1: function () {
-        $(".menu-l1").hide();
+        document.querySelector('.menu-l1').style.display = 'none';
     },
 
     hide_l2: function () {
         menu.l2_visible = false;
         menu.l3_visible = false;
-        $(".menu-l2").hide();
-        $(".menu-l3").hide();
-        $(".content-container").css("margin","46px auto 0 auto");
+        document.querySelector('.menu-l2').style.display = 'none';
+        document.querySelector('.menu-l3').style.display = 'none';
+        document.querySelector('.content-container').style.margin = "46px auto 0 auto";
     },
 
     // If we minimise l2 we also hide l3
@@ -203,24 +202,26 @@ var menu = {
         menu.l2_min = true;
         menu.l2_visible = true;
         menu.l3_visible = false;
-        $(".menu-l2").show();
-        $(".menu-l2").css("width","50px");
-        $(".menu-l3").hide();
-        $(".menu-text-l2").hide();
-        $(".menu-title-l2 span").hide();
+        document.querySelector('.menu-l2').style.display = '':
+        document.querySelector('.menu-l2').style.width = "50px";
+        document.querySelector('.menu-l3').style.display = 'none';
+        document.querySelector('.menu-text-l2').style.display = 'none';
+        document.querySelector('.menu-title-l2 span').style.display = 'none';
 
-        var window_width = $(window).width();
-        var max_width = $(".content-container").css("max-width").replace("px","");
+        var window_width = window.innerWidth;
+        var max_width = document.querySelector('.content-container').style.maxWidth.replace("px","");
 
         if (max_width=='none' || window_width<max_width) {
-            $(".content-container").css("margin","46px 0 0 50px");
+            document.querySelector('.content-container').style.margin = "46px 0 0 50px";
         } else {
-            $(".content-container").css("margin","46px auto 0 auto");
+            document.querySelector('.content-container').style.margin = "46px auto 0 auto";
         }
 
-        var ctrl = $("#menu-l2-controls");
-        ctrl.html('<svg class="icon"><use xlink:href="#icon-expand"></use></svg>');
-        ctrl.attr("title","Expand sidebar").removeClass("ctrl-exp").addClass("ctrl-min");
+        var ctrl = document.querySelector('#menu-l2-controls');
+        ctrl.innerHTML = '<svg class="icon"><use xlink:href="#icon-expand"></use></svg>';
+        ctrl.setAttribute("title","Expand sidebar");
+        ctrl.classList.remove("ctrl-exp");
+        ctrl.classlist.add("ctrl-min");
     },
 
     // If we expand l2 we also hide l3
