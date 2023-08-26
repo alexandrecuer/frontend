@@ -355,7 +355,7 @@ var menu = {
             menu.mode = 'manual'
         });
 
-        function addEventListener(el, eventName, eventHandler, selector) {
+        function addEventListener(el, eventName, selector, eventHandler) {
           if (selector) {
             const wrappedHandler = (e) => {
               if (!e.target) return;
