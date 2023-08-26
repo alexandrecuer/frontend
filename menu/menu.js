@@ -306,7 +306,7 @@ var menu = {
             menu.last_active_l1 = menu.active_l1;
             console.log($(this).attr("l1"));
             console.log(menu.active_l1);
-            console.log(window.onclick.target.getAttribute("l1"));
+            console.log(window.onclick.target);
             menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
