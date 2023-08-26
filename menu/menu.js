@@ -303,7 +303,7 @@ var menu = {
     // -----------------------------------------------------------------------
     events: function() {
         console.log(this);
-        console.log($(this);
+        console.log($(this));
         $(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
             
