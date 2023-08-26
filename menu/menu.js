@@ -408,7 +408,7 @@ var menu = {
             menu.mode = 'manual'
         });
 
-        window.addEventListener("resize", function(){
+        $(window).resize(function(){
             menu.resize();
         });
     },
