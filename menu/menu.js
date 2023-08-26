@@ -259,7 +259,7 @@ var menu = {
         document.querySelector('.menu-l2').style.width = "50px";
         document.querySelector('.menu-l3').style.display = ''
         document.querySelectorAll('.menu-text-l2').forEach(function (item) {
-            item.style.display = '';
+            item.style.display = 'none';
         });
         var left = 290;
         if (menu.width<1150) left = 50;
