@@ -306,13 +306,14 @@ var menu = {
             menu.last_active_l1 = menu.active_l1;
             console.log($(this).attr("l1"));
             console.log(menu.active_l1);
+            console.log(event.target);
             window.onclick = e => {
                 console.log(e);
                 console.log(e.target);  // to get the element
 		if (e.target.tagName === "DIV") {
-                    console.log(e.target.attributes[0]);
+                    console.log(e.target.attributes[0].nodeValue);
 		} else {
-                    console.log(e.target.parentNode.attributes[0]);
+                    console.log(e.target.parentNode.attributes[0].nodeValue);
 		}
                 console.log(e.target.tagName);  // to get the element tag name alone
             };
