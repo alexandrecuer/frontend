@@ -1,23 +1,3 @@
-function addEventListener(el, eventName, eventHandler, selector) {
-  if (selector) {
-    const wrappedHandler = (e) => {
-      if (!e.target) return;
-      const el = e.target.closest(selector);
-      if (el) {
-        eventHandler.call(el, e);
-      }
-    };
-    el.addEventListener(eventName, wrappedHandler);
-    return wrappedHandler;
-  } else {
-    const wrappedHandler = (e) => {
-      eventHandler.call(el, e);
-    };
-    el.addEventListener(eventName, wrappedHandler);
-    return wrappedHandler;
-  }
-}
-
 var menu = {
 
     // Holds the menu object collated from the _menu.php menu definition files
@@ -374,6 +354,26 @@ var menu = {
             }
             menu.mode = 'manual'
         });
+
+        function addEventListener(el, eventName, eventHandler, selector) {
+          if (selector) {
+            const wrappedHandler = (e) => {
+              if (!e.target) return;
+              const el = e.target.closest(selector);
+              if (el) {
+                eventHandler.call(el, e);
+              }
+            };
+            el.addEventListener(eventName, wrappedHandler);
+            return wrappedHandler;
+          } else {
+            const wrappedHandler = (e) => {
+              eventHandler.call(el, e);
+            };
+            el.addEventListener(eventName, wrappedHandler);
+            return wrappedHandler;
+          }
+        }
 
         var ml2 = document.querySelector('.menu-l2');
         addEventListener(ml2, "click", "li div", function(event){
