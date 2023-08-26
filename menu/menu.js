@@ -321,8 +321,8 @@ var menu = {
     events: function() {
         document.querySelector('.menu-l1 li div').addEventListener('click', function(event){
             menu.last_active_l1 = menu.active_l1;
-            //menu.active_l1 = $(this).attr("l1");//menu.active_l1 = this.getAttribute("l1");
-            menu.active_l1 = document.querySelector(this).getAttribute("l1");
+            menu.active_l1 = $(this).attr("l1");//menu.active_l1 = this.getAttribute("l1");
+            //menu.active_l1 = document.querySelector(this).getAttribute("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
             document.querySelector('.menu-l1 li div').classList.remove("active");
@@ -378,7 +378,7 @@ var menu = {
 
         var ml2 = document.querySelector('.menu-l2');
         addEventListener(ml2, "click", "li div", function(event){
-            menu.active_l2 = this.getAttribute("l2");
+            menu.active_l2 = $(this).attr("l2");//menu.active_l2 = this.getAttribute("l2");
             let item = menu.obj[menu.active_l1]['l2'][menu.active_l2];
             // Remove active class from all menu items
             document.querySelector('.menu-l2 li div').classList.remove("active");
