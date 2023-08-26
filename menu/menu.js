@@ -309,7 +309,8 @@ var menu = {
             window.onclick = e => {
                 console.log(e);
                 console.log(e.target);  // to get the element
-		console.log(e.target.getAttributes("l1"));
+		console.log(e.srcElement);
+		console.log(e.srcElement.getAttributes("l1"));
                 console.log(e.target.tagName);  // to get the element tag name alone
             };
             menu.active_l1 = $(this).attr("l1");
