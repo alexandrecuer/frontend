@@ -321,7 +321,8 @@ var menu = {
     events: function() {
         document.querySelector('.menu-l1 li div').addEventListener('click', function(event){
             menu.last_active_l1 = menu.active_l1;
-            menu.active_l1 = $(this).attr("l1");//menu.active_l1 = this.getAttribute("l1");
+            //menu.active_l1 = $(this).attr("l1");//menu.active_l1 = this.getAttribute("l1");
+            menu.active_l1 = document.querySelector(this).getAttribute("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
             document.querySelector('.menu-l1 li div').classList.remove("active");
