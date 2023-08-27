@@ -306,10 +306,13 @@ var menu = {
             menu.last_active_l1 = menu.active_l1;
             el = event.target;
             console.log(el);console.log(el.tagName);console.log(el.parentNode);
-            if (el.tagName === "DIV") {
-                menu.active_l1 = el.attributes[0].nodeValue;
-            } else {
-                menu.active_l1 = el.parentNode.attributes[0].nodeValue;
+            switch (el.tagName) {
+	      case "DIV":
+		menu.active_l1 = el.attributes[0].nodeValue;
+	      case "use":
+		menu.active_l1 = el.parentNode.parentNode.attributes[0].nodeValue;
+	      default:
+		 menu.active_l1 = el.parentNode.attributes[0].nodeValue;   
             }
             //menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
