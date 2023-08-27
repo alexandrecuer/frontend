@@ -302,7 +302,8 @@ var menu = {
     // Menu events
     // -----------------------------------------------------------------------
     events: function() {
-        document.querySelector('.menu-l1 li div').addEventListener('click', (event) => {
+        document.querySelectorAll('.menu-l1 li div').forEach(function (item) { item.addEventListener('click', (event) => {
+        //document.querySelector('.menu-l1 li div').addEventListener('click', (event) => {
         //$(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
             el = event.target;
@@ -349,7 +350,7 @@ var menu = {
                 }
             }
             menu.mode = 'manual'
-        });
+        })});
 
         $(".menu-l2").on("click","li div",function(event){
             el = event.target;
