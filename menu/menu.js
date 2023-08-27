@@ -305,12 +305,12 @@ var menu = {
         $(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
             el = event.target;
-            console.log(el);console.log(el.tagName);console.log(el.parentNode);
+            console.log(el);console.log(el.tagName);console.log(el.parentNode);console.log((el.parentNode).parentNode);
             switch (el.tagName) {
 	      case "DIV":
 		menu.active_l1 = el.attributes[0].nodeValue;
 	      case "use":
-		menu.active_l1 = el.parentNode.parentNode.attributes[0].nodeValue;
+		menu.active_l1 = (el.parentNode).parentNode.attributes[0].nodeValue;
 	      default:
 		 menu.active_l1 = el.parentNode.attributes[0].nodeValue;   
             }
