@@ -325,7 +325,8 @@ var menu = {
                 item.classList.remove("active");
             })
             //$(".menu-l1 li div").removeClass("active");
-            $(".menu-l1 li div[l1="+menu.active_l1+"]").addClass("active");
+            document.querySelector('.menu-l1 li div[l1='+menu.active_l1+']').classList.add("active");
+            //$(".menu-l1 li div[l1="+menu.active_l1+"]").addClass("active");
             // If no sub menu then menu item is a direct link
             if (item['l2']==undefined) {
                 window.location = path+item['href']
