@@ -321,7 +321,7 @@ var menu = {
             //menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
-            document.querySelector('.menu-l1 li div').forEach(function (item) {
+            document.querySelectorAll('.menu-l1 li div').forEach(function (item) {
                 item.classList.remove("active");
             })
             //$(".menu-l1 li div").removeClass("active");
