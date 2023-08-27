@@ -305,11 +305,12 @@ var menu = {
         $(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
             el = event.target;
-            if (el.tagName === "DIV") {
-                menu.active_l1 = el.attributes[0].nodeValue;
-	    } else {
-                menu.active_l1 = el.parentNode.attributes[0].nodeValue;
-	    }
+            //if (el.tagName === "DIV") {
+            //    menu.active_l1 = el.attributes[0].nodeValue;
+	    //} else {
+            //    menu.active_l1 = el.parentNode.attributes[0].nodeValue;
+	    //}
+            menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
             $(".menu-l1 li div").removeClass("active");
