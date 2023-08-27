@@ -302,7 +302,7 @@ var menu = {
     // Menu events
     // -----------------------------------------------------------------------
     events: function() {
-        document.querySelector('.menu-l1 li div').addEventListener('click', function(event){
+        document.querySelector('.menu-l1 li div').addEventListener('click', (event) => {
         //$(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
             el = event.target;
