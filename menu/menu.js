@@ -393,7 +393,8 @@ var menu = {
             menu.mode = 'manual'
         });
 
-        $(window).resize(function(){
+        window.addEventListener("resize", function() {
+        //$(window).resize(function(){
             menu.resize();
         });
     },
