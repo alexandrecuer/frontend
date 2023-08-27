@@ -352,12 +352,17 @@ var menu = {
 
         $(".menu-l2").on("click","li div",function(event){
             el = event.target;
-            //if (el.tagName === "DIV") {
-            //    menu.active_l2 = el.attributes[0].nodeValue;
-            //} else {
-            //    menu.active_l2 = el.parentNode.attributes[0].nodeValue;
-            //};
-            menu.active_l2 = $(this).attr("l2");
+            switch (el.tagName) {
+	      case "DIV":
+		menu.active_l2 = el.attributes[0].nodeValue;
+		break;
+	      case "use":
+		menu.active_l2 = (el.parentNode).parentNode.attributes[0].nodeValue;
+		break
+	      default:
+		 menu.active_l2 = el.parentNode.attributes[0].nodeValue;   
+            }
+            //menu.active_l2 = $(this).attr("l2");
             let item = menu.obj[menu.active_l1]['l2'][menu.active_l2];
             // Remove active class from all menu items
             $(".menu-l2 li div").removeClass("active");
