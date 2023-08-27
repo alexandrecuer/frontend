@@ -321,7 +321,10 @@ var menu = {
             //menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
-            $(".menu-l1 li div").removeClass("active");
+            document.querySelector('.menu-l1 li div').forEach(function (item) {
+                item.classList.remove("active");
+            })
+            //$(".menu-l1 li div").removeClass("active");
             $(".menu-l1 li div[l1="+menu.active_l1+"]").addClass("active");
             // If no sub menu then menu item is a direct link
             if (item['l2']==undefined) {
