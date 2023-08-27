@@ -89,7 +89,7 @@ var menu = {
                 out += '<li><a '+href+' onclick="return false;"><div l1='+l1+' class="'+active+'" title="'+title+'"> '+icon+'<span class="menu-text-l1"> '+item['name']+'</span></div></a></li>';
             }
         }
-        document.querySelector('.menu-l1 ul').innerHTML = out;
+        $(".menu-l1 ul").html(out);
 
         if (menu.active_l1 && menu.obj[menu.active_l1]['l2']!=undefined) menu.draw_l2(); else menu.hide_l2();
     },
@@ -148,7 +148,7 @@ var menu = {
             }
         }
 
-        document.querySelector('.menu-l2 ul').innerHTML = out;
+        $(".menu-l2 ul").html(out);
 
         // If menu_l2 open and l2 menu item active and l3 exists: draw l3
         if (menu.active_l2 && menu.obj[menu.active_l1]['l2'][menu.active_l2]!=undefined && menu.obj[menu.active_l1]['l2'][menu.active_l2]['l3']!=undefined) {
@@ -174,7 +174,7 @@ var menu = {
             // Menu item
             out += '<li><a href="'+path+item['href']+'" class="'+active+'">'+item['name']+'</a></li>';
         }
-        document.querySelector('.menu-l3 ul').innerHTML = out;
+        $(".menu-l3 ul").html(out);
         menu.show_l3();
     },
 
@@ -186,15 +186,15 @@ var menu = {
 
     // l2 min + l3 hidden
     hide_l1: function () {
-        document.querySelector('.menu-l1').style.display = 'none';
+        $(".menu-l1").hide();
     },
 
     hide_l2: function () {
         menu.l2_visible = false;
         menu.l3_visible = false;
-        document.querySelector('.menu-l2').style.display = 'none';
-        document.querySelector('.menu-l3').style.display = 'none';
-        document.querySelector('.content-container').style.margin = "46px auto 0 auto";
+        $(".menu-l2").hide();
+        $(".menu-l3").hide();
+        $(".content-container").css("margin","46px auto 0 auto");
     },
 
     // If we minimise l2 we also hide l3
@@ -202,52 +202,41 @@ var menu = {
         menu.l2_min = true;
         menu.l2_visible = true;
         menu.l3_visible = false;
-        document.querySelector('.menu-l2').style.display = '';
-        document.querySelector('.menu-l2').style.width = "50px";
-        document.querySelector('.menu-l3').style.display = 'none';
-        document.querySelectorAll('.menu-text-l2').forEach(function (item) {
-            item.style.display = 'none';
-        });
-        document.querySelector('.menu-title-l2 span').style.display = 'none';
+        $(".menu-l2").show();
+        $(".menu-l2").css("width","50px");
+        $(".menu-l3").hide();
+        $(".menu-text-l2").hide();
+        $(".menu-title-l2 span").hide();
 
-        var window_width = window.innerWidth;
-        var max_width = document.querySelector('.content-container').style.maxWidth.replace("px","");
+        var window_width = $(window).width();
+        var max_width = $(".content-container").css("max-width").replace("px","");
 
         if (max_width=='none' || window_width<max_width) {
-            document.querySelector('.content-container').style.margin = "46px 0 0 50px";
+            $(".content-container").css("margin","46px 0 0 50px");
         } else {
-            document.querySelector('.content-container').style.margin = "46px auto 0 auto";
+            $(".content-container").css("margin","46px auto 0 auto");
         }
 
-        var ctrl = document.querySelector('#menu-l2-controls');
-        ctrl.innerHTML = '<svg class="icon"><use xlink:href="#icon-expand"></use></svg>';
-        ctrl.setAttribute("title","Expand sidebar");
-        ctrl.classList.remove("ctrl-exp");
-        ctrl.classList.add("ctrl-min");
+        var ctrl = $("#menu-l2-controls");
+        ctrl.html('<svg class="icon"><use xlink:href="#icon-expand"></use></svg>');
+        ctrl.attr("title","Expand sidebar").removeClass("ctrl-exp").addClass("ctrl-min");
     },
 
     // If we expand l2 we also hide l3
     exp_l2: function () {
-        if (menu.l2_min) setTimeout(function(){
-                document.querySelectorAll('.menu-text-l2').forEach(function (item) {
-                    item.style.display = '';
-                });
-                document.querySelector('.menu-title-l2 span').style.display = '';
-            },200);
+        if (menu.l2_min) setTimeout(function(){ $(".menu-text-l2").show(); $(".menu-title-l2 span").show(); },200);
         menu.l2_min = false;
         menu.l2_visible = true;
         menu.hide_l3();
-        document.querySelector('.menu-l2').style.display = '';
-        document.querySelector('.menu-l2').style.width = "240px";
+        $(".menu-l2").show();
+        $(".menu-l2").css("width","240px");
         var left = 240;
         if (menu.width<1150) left = 50;
-        document.querySelector('.content-container').style.margin = "46px 0 0 "+left+"px";
+        $(".content-container").css("margin","46px 0 0 "+left+"px");
 
-        var ctrl = document.querySelector('#menu-l2-controls');
-        ctrl.innerHTML = '<svg class="icon"><use xlink:href="#icon-contract"></use></svg>';
-        ctrl.setAttribute("title","Minimise sidebar");
-        ctrl.classList.remove("ctrl-min");
-        ctrl.classList.add("ctrl-exp");
+        var ctrl = $("#menu-l2-controls");
+        ctrl.html('<svg class="icon"><use xlink:href="#icon-contract"></use></svg>');
+        ctrl.attr("title","Minimise sidebar").removeClass("ctrl-min").addClass("ctrl-exp");
     },
 
     // If we show l3, l2_min = false moves back to expanded l2
@@ -256,25 +245,23 @@ var menu = {
         menu.l2_visible = true;
         menu.l3_visible = true;
         menu.l2_min = true;
-        document.querySelector('.menu-l2').style.width = "50px";
-        document.querySelector('.menu-l3').style.display = 'block';
-        document.querySelectorAll('.menu-text-l2').forEach(function (item) {
-            item.style.display = 'none';
-        });
+        $(".menu-l2").css("width","50px");
+        $(".menu-l3").show();
+        $(".menu-text-l2").hide();
         var left = 290;
         if (menu.width<1150) left = 50;
-        document.querySelector('.content-container').style.margin = "46px 0 0 "+left+"px";
+        $(".content-container").css("margin","46px 0 0 "+left+"px");
     },
 
     // If we hide l3 - l2 expands
     hide_l3: function () {
         menu.l3_visible = false;
-        document.querySelector('.menu-l3').style.display = 'none';
+        $(".menu-l3").hide();
     },
 
     resize: function() {
-        menu.width = window.innerWidth;
-        menu.height = window.innerHeight;
+        menu.width = $(window).width();
+        menu.height = $(window).height();
 
         if (!menu.is_disabled) {
             
@@ -294,17 +281,13 @@ var menu = {
             }
 
             if (menu.width<576) {
-                document.querySelectorAll('.menu-text-l1').forEach(function (item) {
-                    item.style.display = 'none';
-                });
+                $(".menu-text-l1").hide();
             } else {
-                document.querySelectorAll('.menu-text-l1').forEach(function (item) {
-                    item.style.display = '';
-                });
+                $(".menu-text-l1").show();
             }
-	    // Alexandre CUER - 01/09/2021 - specific to index page if any
-	    console.log(q);
-	    if (q==="index" || q==="//") menu.hide_l2();
+	        // Alexandre CUER - 01/09/2021 - specific to index page if any
+	        console.log(q);
+	        if (q==="index" || q==="//") menu.hide_l2();
         }
     },
 
@@ -319,21 +302,25 @@ var menu = {
     // Menu events
     // -----------------------------------------------------------------------
     events: function() {
-        document.querySelector('.menu-l1 li div').addEventListener('click', function(event){
+        $(".menu-l1 li div").click(function(event){
             menu.last_active_l1 = menu.active_l1;
             el = event.target;
+            console.log(el);console.log(el.tagName);console.log(el.parentNode);console.log((el.parentNode).parentNode);
             switch (el.tagName) {
                 case "DIV":
                     menu.active_l1 = el.attributes[0].nodeValue;
+                    break;
                 case "use":
                     menu.active_l1 = (el.parentNode).parentNode.attributes[0].nodeValue;
+                    break;
                 default:
                     menu.active_l1 = el.parentNode.attributes[0].nodeValue;   
             }
+            //menu.active_l1 = $(this).attr("l1");
             let item = menu.obj[menu.active_l1];
             // Remove active class from all menu items
-            document.querySelector('.menu-l1 li div').classList.remove("active");
-            document.querySelector('.menu-l1 li div[l1='+menu.active_l1+']').classList.add("active");
+            $(".menu-l1 li div").removeClass("active");
+            $(".menu-l1 li div[l1="+menu.active_l1+"]").addClass("active");
             // If no sub menu then menu item is a direct link
             if (item['l2']==undefined) {
                 window.location = path+item['href']
@@ -363,34 +350,24 @@ var menu = {
             menu.mode = 'manual'
         });
 
-        function addEventListener(el, eventName, selector, eventHandler) {
-            const wrappedHandler = (e) => {
-                if (!e.target) return;
-                const el = e.target.closest(selector);
-                if (el) {
-                    eventHandler.call(el, e);
-                }
-            };
-            el.addEventListener(eventName, wrappedHandler);
-            return wrappedHandler;
-        }
-
-        var ml2 = document.querySelector('.menu-l2');
-        addEventListener(ml2, "click", "li div", function(event){
+        $(".menu-l2").on("click","li div",function(event){
             el = event.target;
             switch (el.tagName) {
                 case "DIV":
                     menu.active_l2 = el.attributes[0].nodeValue;
+                    break;
                 case "use":
                     menu.active_l2 = (el.parentNode).parentNode.attributes[0].nodeValue;
+                    break
                 default:
                     menu.active_l2 = el.parentNode.attributes[0].nodeValue;   
             }
+            //menu.active_l2 = $(this).attr("l2");
             let item = menu.obj[menu.active_l1]['l2'][menu.active_l2];
             // Remove active class from all menu items
-            document.querySelector('.menu-l2 li div').classList.remove("active");
+            $(".menu-l2 li div").removeClass("active");
             // Set active class to current menu
-            document.querySelector('.menu-l2 li div[l2='+menu.active_l2+']').classList.add("active");
+            $(".menu-l2 li div[l2="+menu.active_l2+"]").addClass("active");
             // If no sub menu then menu item is a direct link
             if (item['l3']!=undefined) {
                 if (!menu.l3_visible) {
@@ -402,11 +379,11 @@ var menu = {
             }
         });
 
-        addEventListener(ml2, "click", "li", function(event){
+        $(".menu-l2").on("click","li",function(event){
             event.stopPropagation();
         });
 
-        document.querySelector('#menu-l2-controls').addEventListener('click', function(event){
+        $("#menu-l2-controls").click(function(event){
             event.stopPropagation();
             if (menu.l2_visible && menu.l2_min) {
                 menu.exp_l2();
@@ -417,6 +394,7 @@ var menu = {
         });
 
         window.addEventListener("resize", function() {
+        //$(window).resize(function(){
             menu.resize();
         });
     },
