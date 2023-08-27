@@ -309,8 +309,10 @@ var menu = {
             switch (el.tagName) {
 	      case "DIV":
 		menu.active_l1 = el.attributes[0].nodeValue;
+		break;
 	      case "use":
 		menu.active_l1 = (el.parentNode).parentNode.attributes[0].nodeValue;
+		break;
 	      default:
 		 menu.active_l1 = el.parentNode.attributes[0].nodeValue;   
             }
