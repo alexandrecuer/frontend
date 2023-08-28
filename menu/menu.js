@@ -356,33 +356,49 @@ var menu = {
             menu.mode = 'manual'
         })});
 
-        $(".menu-l2").on("click","li div",function(event){
-            el = event.target;
-            switch (el.tagName) {
-                case "DIV":
-                    menu.active_l2 = el.attributes[0].nodeValue;
-                    break;
-                case "use":
-                    menu.active_l2 = (el.parentNode).parentNode.attributes[0].nodeValue;
-                    break
-                default:
-                    menu.active_l2 = el.parentNode.attributes[0].nodeValue;   
-            }
-            //menu.active_l2 = $(this).attr("l2");
-            let item = menu.obj[menu.active_l1]['l2'][menu.active_l2];
-            // Remove active class from all menu items
-            $(".menu-l2 li div").removeClass("active");
-            // Set active class to current menu
-            $(".menu-l2 li div[l2="+menu.active_l2+"]").addClass("active");
-            // If no sub menu then menu item is a direct link
-            if (item['l3']!=undefined) {
-                if (!menu.l3_visible) {
-                    // Expand sub menu
-                    menu.draw_l3();
-                } else {
-                    menu.min_l2();
+        function addEventListener(el, eventName, selector, eventHandler) {
+            const wrappedHandler = (e) => {
+                if (!e.target) return;
+                const el = e.target.closest(selector);
+                if (el) {
+                    eventHandler.call(el, e);
                 }
-            }
+            };
+            el.addEventListener(eventName, wrappedHandler);
+            return wrappedHandler;
+        }
+
+        var ml2 = document.querySelectorAll('.menu-l2');
+        ml2.forEach(function (item) {
+            addEventListener(item, "click", "li div", function(event){
+                el = event.target;
+                switch (el.tagName) {
+                    case "DIV":
+                        menu.active_l2 = el.attributes[0].nodeValue;
+                        break;
+                    case "use":
+                        menu.active_l2 = (el.parentNode).parentNode.attributes[0].nodeValue;
+                        break;
+                    default:
+                        menu.active_l2 = el.parentNode.attributes[0].nodeValue;   
+                }
+                let item = menu.obj[menu.active_l1]['l2'][menu.active_l2];
+                // Remove active class from all menu items
+                document.querySelectorAll('.menu-l2 li div').forEach(function (item) {
+                    item.classList.remove("active");
+                });
+                // Set active class to current menu
+                document.querySelector('.menu-l2 li div[l2='+menu.active_l2+']').classList.add("active");
+                // If no sub menu then menu item is a direct link
+                if (item['l3']!=undefined) {
+                    if (!menu.l3_visible) {
+                        // Expand sub menu
+                        menu.draw_l3();
+                    } else {
+                        menu.min_l2();
+                    }
+                }
+            })
         });
 
         $(".menu-l2").on("click","li",function(event){
