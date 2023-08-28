@@ -407,7 +407,7 @@ var menu = {
             })
         })
 
-        $("#menu-l2-controls").click(function(event){
+        document.querySelector('#menu-l2-controls').addEventListener('click', function(event){
             event.stopPropagation();
             if (menu.l2_visible && menu.l2_min) {
                 menu.exp_l2();
