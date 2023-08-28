@@ -401,9 +401,11 @@ var menu = {
             })
         });
 
-        $(".menu-l2").on("click","li",function(event){
-            event.stopPropagation();
-        });
+        ml2.forEach(function (item) {
+            addEventListener(item, "click", "li", function(event){
+                event.stopPropagation();
+            })
+        })
 
         $("#menu-l2-controls").click(function(event){
             event.stopPropagation();
