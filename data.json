@@ -1,6 +1,5 @@
 {
-  "setup": 
-  {
+  "setup": {
     "name": "Datas",
     "icon": "menu",
     "l2": {
@@ -39,10 +38,9 @@
           }
         }
       }
-	}
+    }
   },
-  "doc":
-  {
+  "doc": {
     "name": "Docs",
     "icon": "tasks",
     "l2": {
@@ -54,8 +52,7 @@
       }
     }
   },
-  "home":
-  {
+  "home": {
     "name": "home",
     "icon": "home",
     "href": "index"
