@@ -2,62 +2,62 @@
   "setup": 
   {
     "name": "Datas",
-	"icon": "menu",
-	"l2": {
-	  "inputs": {
-	    "name": "inputs",
-		"href": "inputs/view",
-	    "order": 1,
-		"icon": "leaf"
-	  },
-	  "feeds": {
-	    "name": "feeds",
-		"href": "feeds/view",
-	    "order": 2,
-		"icon": "format_list_bulleted"
-	  },
-	  "graph": {
+    "icon": "menu",
+    "l2": {
+      "inputs": {
+        "name": "inputs",
+        "href": "inputs/view",
+        "order": 1,
+        "icon": "leaf"
+      },
+      "feeds": {
+        "name": "feeds",
+        "href": "feeds/view",
+        "order": 2,
+        "icon": "format_list_bulleted"
+      },
+      "graph": {
         "name": "graph",
         "href": "graph/view",
         "order": 3,
         "icon": "show_chart",
-		"l3": {
-		  "first": {
-		    "name" : "first graph",
+        "l3": {
+          "first": {
+            "name" : "first graph",
             "href": "graph/view?id=1",
             "order": 1
           },
-		  "second": {
+          "second": {
             "name": "second graph",
             "href": "graph/view?id=2",
             "order": 2
           },
-		  "third": {
-		    "name": "third graph",
+          "third": {
+            "name": "third graph",
             "href": "graph/view?id=3",
             "order": 3
-		  }
-		}
+          }
+        }
       }
 	}
   },
   "doc":
   {
     "name": "Docs",
-	"icon": "tasks",
+    "icon": "tasks",
     "l2": {
       "product1": {
-	    "name": "product 1",
-	    "href": "doc/product1",
-	    "order": 1,
-	    "icon": "cog"
-	  }
-	}
+        "name": "product 1",
+        "href": "doc/product1",
+        "order": 1,
+        "icon": "cog"
+      }
+    }
   },
   "home":
   {
     "name": "home",
-	"icon": "home",
-	"href": "index"
+    "icon": "home",
+    "href": "index"
   }
 }
